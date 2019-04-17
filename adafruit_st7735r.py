@@ -56,7 +56,7 @@ import displayio
 __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_ST7735R.git"
 
-_INIT_SEQUENCE = bytearray(
+_INIT_SEQUENCE = (
     b"\x01\x80\x96" # SWRESET and Delay 150ms
     b"\x11\x80\xff" # SLPOUT and Delay
     b"\xb1\x03\x01\x2C\x2D" # _FRMCTR1
