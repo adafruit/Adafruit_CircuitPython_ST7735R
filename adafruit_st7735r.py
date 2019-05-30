@@ -83,11 +83,19 @@ _INIT_SEQUENCE = bytearray(
 # pylint: disable=too-few-public-methods
 class ST7735R(displayio.Display):
     """ST7735 driver for ST7735R"""
-    def __init__(self, bus, *, bgr=False, **kwargs):
+    def __init__(self, bus, *, bgr=False, rotation = 0, **kwargs):
         """
         :param bool bgr: (Optional) An extra init sequence to append (default=False)
+        :param int rotation: (Optional) An integer 0-3 rotating the display. 90 degrees times the inputted value.
         """
+        rotation %= 4
         init_sequence = _INIT_SEQUENCE
         if bgr:
-            init_sequence += b"\x36\x01\xC0" # _MADCTL Default rotation plus BGR encoding
+            init_sequence += (b"\x36\x01\xC0", b"\x36\x01\xA0", b"\x36\x01\x00", b"\x36\x01\x60")[rotation] # _MADCTL Default rotation plus BGR encoding
+        else:
+            init_sequence += (b"\x36\x01\xC8", b"\x36\x01\xA8", b"\x36\x01\x08", b"\x36\x01\x68")[rotation] # default _MADCTL 
+        
+        #auto switches width and height of rotation is 1 or 2
+        #if rotation%2: # if 1 or 2
+            #kwargs['width'], kwargs['height'] = kwargs['height'] , kwargs['width'] 
         super().__init__(bus, init_sequence, **kwargs)
