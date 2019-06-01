@@ -15,6 +15,18 @@ Introduction
 
 displayio driver for ST7735R TFT-LCD displays.
 
+Hardware
+=========
+
+1.8" SPI TFT display, 160x128 18-bit color <https://www.adafruit.com/product/618>
+Adafruit 0.96" 160x80 Color TFT Display w/ MicroSD Card Breakout <https://www.adafruit.com/product/3533>
+1.8" Color TFT LCD display with MicroSD Card Breakout <https://www.adafruit.com/product/358>
+Adafruit 1.44" Color TFT LCD Display with MicroSD Card breakout <https://www.adafruit.com/product/2088>
+Adafruit Mini Color TFT with Joystick FeatherWing <https://www.adafruit.com/product/3321>
+
+If you have a board with a ST7735B chip, you may want to try
+`the Adafruit ST7735 Driver <https://github.com/adafruit/Adafruit_CircuitPython_ST7735>`_.
+
 Dependencies
 =============
 This driver depends on:
