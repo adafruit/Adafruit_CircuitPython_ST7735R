@@ -83,11 +83,13 @@ _INIT_SEQUENCE = bytearray(
 # pylint: disable=too-few-public-methods
 class ST7735R(displayio.Display):
     """ST7735 driver for ST7735R"""
-    def __init__(self, bus, *, bgr=False, **kwargs):
+    def __init__(self, bus, *, bgr=False, invert=False, **kwargs):
         """
         :param bool bgr: (Optional) An extra init sequence to append (default=False)
         """
         init_sequence = _INIT_SEQUENCE
         if bgr:
             init_sequence += b"\x36\x01\xC0" # _MADCTL Default rotation plus BGR encoding
+        if invert:
+            init_sequence += b"\x21\x00" # _INVON
         super().__init__(bus, init_sequence, **kwargs)
