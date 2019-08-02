@@ -7,7 +7,6 @@ import displayio
 from adafruit_seesaw.tftshield18 import TFTShield18
 from adafruit_st7735r import ST7735R
 
-reset_pin = 3
 ss = TFTShield18()
 
 spi = board.SPI()
