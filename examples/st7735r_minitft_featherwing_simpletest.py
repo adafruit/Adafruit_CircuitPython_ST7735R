@@ -10,6 +10,9 @@ from adafruit_display_text import label
 from adafruit_seesaw.seesaw import Seesaw
 from adafruit_st7735r import ST7735R
 
+# Release any resources currently in use for the displays
+displayio.release_displays()
+
 reset_pin = 8
 i2c = board.I2C()
 ss = Seesaw(i2c, 0x5E)
@@ -19,7 +22,6 @@ spi = board.SPI()
 tft_cs = board.D5
 tft_dc = board.D6
 
-displayio.release_displays()
 display_bus = displayio.FourWire(spi, command=tft_dc, chip_select=tft_cs)
 
 ss.digital_write(reset_pin, True)
