@@ -7,13 +7,15 @@ import displayio
 from adafruit_seesaw.tftshield18 import TFTShield18
 from adafruit_st7735r import ST7735R
 
+# Release any resources currently in use for the displays
+displayio.release_displays()
+
 ss = TFTShield18()
 
 spi = board.SPI()
 tft_cs = board.D10
 tft_dc = board.D8
 
-displayio.release_displays()
 display_bus = displayio.FourWire(spi, command=tft_dc, chip_select=tft_cs)
 
 ss.tft_reset()
