@@ -9,8 +9,8 @@ Introduction
     :target: https://discord.gg/nBQh6qu
     :alt: Discord
 
-.. image:: https://travis-ci.com/adafruit/Adafruit_CircuitPython_ST7735R.svg?branch=master
-    :target: https://travis-ci.com/adafruit/Adafruit_CircuitPython_ST7735R
+.. image:: https://github.com/adafruit/Adafruit_CircuitPython_ST7735R/workflows/Build%20CI/badge.svg
+    :target: https://github.com/adafruit/Adafruit_CircuitPython_ST7735R/actions/
     :alt: Build Status
 
 displayio driver for ST7735R TFT-LCD displays.
