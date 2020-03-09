@@ -50,4 +50,4 @@ while True:
     if buttons.c:
         print("Button C!")
 
-    time.sleep(.001)
+    time.sleep(0.001)
