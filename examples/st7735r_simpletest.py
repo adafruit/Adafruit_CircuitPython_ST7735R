@@ -4,8 +4,8 @@ background, a smaller purple rectangle, and some yellow text.
 """
 
 import board
-import displayio
 import terminalio
+import displayio
 from adafruit_display_text import label
 from adafruit_st7735r import ST7735R
 
