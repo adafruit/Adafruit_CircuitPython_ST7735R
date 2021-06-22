@@ -34,7 +34,7 @@ display.show(splash)
 color_bitmap = displayio.Bitmap(160, 80, 1)
 color_palette = displayio.Palette(1)
 # write some text in each font color, rgb, cmyk
-color_palette[0] = 0x111111 # light grey
+color_palette[0] = 0x111111  # light grey
 
 text_group_left = displayio.Group(max_size=10, scale=1, x=0, y=6)
 text_area_red = label.Label(terminalio.FONT, text="RED", color=0xFF0000)
