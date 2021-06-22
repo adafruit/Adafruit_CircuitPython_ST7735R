@@ -1,4 +1,4 @@
-Simple test
+Simple Test
 ------------
 
 Ensure your device works with this simple test.
@@ -7,16 +7,20 @@ Ensure your device works with this simple test.
     :caption: examples/st7735r_simpletest.py
     :linenos:
 
-128x160 Simple test
+128x160 Tests
 --------------------
 
-Example for the 128x160
+Examples for the 128x160
 
 .. literalinclude:: ../examples/st7735r_128x160_simpletest.py
     :caption: examples/st7735r_128x160_simpletest.py
     :linenos:
 
-Minitft featherwing test
+.. literalinclude:: ../examples/st7735r_128x160_colored_labels.py
+    :caption: examples/st7735r_128x160_colored_labels.py
+    :linenos:
+
+Minitft FeatherWing Test
 -------------------------
 
 Simple example for the minitft featherwing
@@ -25,7 +29,7 @@ Simple example for the minitft featherwing
     :caption: examples/st7735r_minitft_featherwing_simpletest.py
     :linenos:
 
-Minitft test
+MiniTFT Test
 ------------
 
 Simple example for the minitft

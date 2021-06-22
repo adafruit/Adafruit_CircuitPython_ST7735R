@@ -74,7 +74,11 @@ class ST7735R(displayio.Display):
         init_sequence = _INIT_SEQUENCE
         if bgr:
             init_sequence += (
-                b"\x36\x01\xC8"  # _MADCTL Default rotation plus BGR encoding
+                b"\x36\x01\xC0"  # _MADCTL Default rotation plus BGR encoding
+            )
+        else:
+            init_sequence += (
+                b"\x36\x01\xC8"  # _MADCTL Default rotation plus RGB encoding
             )
         if invert:
             init_sequence += b"\x21\x00"  # _INVON
