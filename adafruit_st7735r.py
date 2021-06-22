@@ -16,21 +16,21 @@ Implementation Notes
 
 **Hardware:**
 
-* 1.8" SPI TFT display, 160x128 18-bit color:
-  https://www.adafruit.com/product/618
-* Adafruit 0.96" 160x80 Color TFT Display w/ MicroSD Card Breakout:
-  https://www.adafruit.com/product/3533
-* 1.8" Color TFT LCD display with MicroSD Card Breakout:
-  https://www.adafruit.com/product/358
-* Adafruit 1.44" Color TFT LCD Display with MicroSD Card breakout:
-  https://www.adafruit.com/product/2088
-* Adafruit Mini Color TFT with Joystick FeatherWing:
-  https://www.adafruit.com/product/3321
+* `1.8" SPI TFT display, 160x128 18-bit color
+  <https://www.adafruit.com/product/618>`_ (Product ID: 618)
+* `Adafruit 0.96" 160x80 Color TFT Display w/ MicroSD Card Breakout
+  <https://www.adafruit.com/product/3533>`_ (Product ID: 3533)
+* `1.8" Color TFT LCD display with MicroSD Card Breakout:
+  <https://www.adafruit.com/product/358>`_ (Product ID: 358)
+* `Adafruit 1.44" Color TFT LCD Display with MicroSD Card breakout:
+  <https://www.adafruit.com/product/2088>`_ (Product ID: 2088)
+* `Adafruit Mini Color TFT with Joystick FeatherWing:
+  <https://www.adafruit.com/product/3321>`_ (Product ID: 3321)
 
 **Software and Dependencies:**
 
 * Adafruit CircuitPython firmware for the supported boards:
-  https://github.com/adafruit/circuitpython/releases
+  https://circuitpython.org/downloads
 
 """
 

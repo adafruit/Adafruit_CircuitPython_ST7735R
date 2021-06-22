@@ -23,6 +23,10 @@ Table of Contents
 .. toctree::
     :caption: Tutorials
 
+    1.8" TFT Display Breakout and Shield <https://learn.adafruit.com/1-8-tft-display>
+    Adafruit Mini TFT - 0.96" 160x80 <https://learn.adafruit.com/adafruit-mini-tft-0-dot-96-inch-180x60-breakout>
+    Adafruit Mini TFT with Joystick Featherwing <https://learn.adafruit.com/adafruit-mini-tft-featherwing>
+
 .. toctree::
     :caption: Related Products
 
