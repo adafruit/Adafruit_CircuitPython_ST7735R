@@ -33,7 +33,7 @@ display = ST7735R(
 )
 
 # Make the display context
-splash = displayio.Group(max_size=10)
+splash = displayio.Group()
 display.show(splash)
 
 color_bitmap = displayio.Bitmap(160, 80, 1)
@@ -51,7 +51,7 @@ inner_sprite = displayio.TileGrid(inner_bitmap, pixel_shader=inner_palette, x=5,
 splash.append(inner_sprite)
 
 # Draw a label
-text_group = displayio.Group(max_size=10, scale=2, x=11, y=40)
+text_group = displayio.Group(scale=2, x=11, y=40)
 text = "Hello World!"
 text_area = label.Label(terminalio.FONT, text=text, color=0xFFFF00)
 text_group.append(text_area)  # Subgroup for text scaling
