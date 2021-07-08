@@ -28,7 +28,7 @@ display = ST7735R(
 )
 
 # Make the display context
-splash = displayio.Group(max_size=10)
+splash = displayio.Group()
 display.show(splash)
 
 color_bitmap = displayio.Bitmap(160, 80, 1)
@@ -36,7 +36,7 @@ color_palette = displayio.Palette(1)
 # write some text in each font color, rgb, cmyk
 color_palette[0] = 0x111111  # light grey
 
-text_group_left = displayio.Group(max_size=10, scale=1, x=0, y=6)
+text_group_left = displayio.Group(scale=1, x=0, y=6)
 text_area_red = label.Label(terminalio.FONT, text="RED", color=0xFF0000)
 text_area_green = label.Label(terminalio.FONT, text="\nGREEN", color=0x00FF00)
 text_area_blue = label.Label(terminalio.FONT, text="\n\nBLUE", color=0x0000FF)
@@ -47,7 +47,7 @@ text_group_left.append(text_area_blue)
 text_group_left.append(text_area_white)
 splash.append(text_group_left)
 
-text_group_right = displayio.Group(max_size=10, scale=1, x=80, y=6)
+text_group_right = displayio.Group(scale=1, x=80, y=6)
 text_area_cyan = label.Label(terminalio.FONT, text="CYAN", color=0x00FFFF)
 text_group_right.append(text_area_cyan)
 text_area_magenta = label.Label(terminalio.FONT, text="\nMAGENTA", color=0xFF00FF)
