@@ -33,6 +33,11 @@ Implementation Notes
   https://circuitpython.org/downloads
 
 """
+try:
+    # used for typing only
+    from typing import Any
+except ImportError:
+    pass
 
 import displayio
 
@@ -63,14 +68,26 @@ _INIT_SEQUENCE = bytearray(
     b"\x29\x80\x64"  # _DISPON
 )
 
+
 # pylint: disable=too-few-public-methods
 class ST7735R(displayio.Display):
-    """ST7735 driver for ST7735R"""
+    """
+    ST7735R display driver
 
-    def __init__(self, bus, *, bgr=False, invert=False, **kwargs):
-        """
-        :param bool bgr: (Optional) An extra init sequence to append (default=False)
-        """
+    :param displayio.FourWire bus: bus that the display is connected to
+    :param bool bgr: (Optional) An extra init sequence to append (default=False)
+    :param bool invert: (Optional) Invert the colors (default=False)
+    """
+
+    def __init__(
+        self,
+        bus: displayio.FourWire,
+        *,
+        bgr: bool = False,
+        invert: bool = False,
+        **kwargs: Any
+    ):
+
         init_sequence = _INIT_SEQUENCE
         if bgr:
             init_sequence += (
