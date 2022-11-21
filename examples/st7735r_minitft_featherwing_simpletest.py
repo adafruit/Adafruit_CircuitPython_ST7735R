@@ -17,7 +17,8 @@ from adafruit_st7735r import ST7735R
 displayio.release_displays()
 
 reset_pin = 8
-i2c = board.I2C()
+i2c = board.I2C()  # uses board.SCL and board.SDA
+# i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
 ss = Seesaw(i2c, 0x5E)
 ss.pin_mode(reset_pin, ss.OUTPUT)
 
