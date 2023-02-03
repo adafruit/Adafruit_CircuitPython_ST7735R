@@ -32,7 +32,13 @@ Simple example for the minitft featherwing
 MiniTFT Test
 ------------
 
-Simple example for the minitft
+Simple example for the minitft (newer Revision B)
+
+.. literalinclude:: ../examples/st7735r_minitft_revb_simpletest.py
+    :caption: examples/st7735r_minitft_revb_simpletest.py
+    :linenos:
+
+Simple example for the minitft (older Revision A)
 
 .. literalinclude:: ../examples/st7735r_minitft_simpletest.py
     :caption: examples/st7735r_minitft_simpletest.py
