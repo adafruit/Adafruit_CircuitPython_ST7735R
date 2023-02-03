@@ -24,7 +24,13 @@ display_bus = displayio.FourWire(
 )
 
 display = ST7735R(
-    display_bus, width=160, height=80, rowstart=1, colstart=26, rotation=270, invert=True
+    display_bus,
+    width=160,
+    height=80,
+    rowstart=1,
+    colstart=26,
+    rotation=270,
+    invert=True,
 )
 
 # Make the display context
