@@ -87,7 +87,6 @@ class ST7735R(displayio.Display):
         invert: bool = False,
         **kwargs: Any
     ):
-
         init_sequence = _INIT_SEQUENCE
         if bgr:
             init_sequence += (
