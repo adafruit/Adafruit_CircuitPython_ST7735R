@@ -9,6 +9,7 @@ labels. Useful for testing the color settings on an unknown display.
 import board
 import terminalio
 import displayio
+import fourwire
 from adafruit_display_text import label
 from adafruit_st7735r import ST7735R
 
@@ -19,9 +20,7 @@ spi = board.SPI()
 tft_cs = board.D5
 tft_dc = board.D6
 
-display_bus = displayio.FourWire(
-    spi, command=tft_dc, chip_select=tft_cs, reset=board.D9
-)
+display_bus = fourwire.FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=board.D9)
 
 display = ST7735R(
     display_bus, width=160, height=80, colstart=24, rotation=270, bgr=False
@@ -29,7 +28,7 @@ display = ST7735R(
 
 # Make the display context
 splash = displayio.Group()
-display.show(splash)
+display.root_group = splash
 
 color_bitmap = displayio.Bitmap(160, 80, 1)
 color_palette = displayio.Palette(1)

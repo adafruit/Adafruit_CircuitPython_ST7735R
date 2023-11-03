@@ -9,6 +9,7 @@ background, a smaller purple rectangle, and some yellow text.
 import board
 import terminalio
 import displayio
+import fourwire
 from adafruit_display_text import label
 from adafruit_st7735r import ST7735R
 
@@ -19,15 +20,13 @@ spi = board.SPI()
 tft_cs = board.D5
 tft_dc = board.D6
 
-display_bus = displayio.FourWire(
-    spi, command=tft_dc, chip_select=tft_cs, reset=board.D9
-)
+display_bus = fourwire.FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=board.D9)
 
 display = ST7735R(display_bus, width=128, height=128, colstart=2, rowstart=1)
 
 # Make the display context
 splash = displayio.Group()
-display.show(splash)
+display.root_group = splash
 
 color_bitmap = displayio.Bitmap(128, 128, 1)
 color_palette = displayio.Palette(1)
