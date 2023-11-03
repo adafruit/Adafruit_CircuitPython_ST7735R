@@ -53,6 +53,7 @@ Usage Example
 
     import board
     import displayio
+    import fourwire
     from adafruit_st7735r import ST7735R
 
     spi = board.SPI()
@@ -60,13 +61,12 @@ Usage Example
     tft_dc = board.D6
 
     displayio.release_displays()
-    display_bus = displayio.FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=board.D9)
+    display_bus = fourwire.FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=board.D9)
 
     display = ST7735R(display_bus, width=128, height=128, colstart=2, rowstart=1)
 
     # Make the display context
     splash = displayio.Group()
-    display.show(splash)
 
     color_bitmap = displayio.Bitmap(128, 128, 1)
     color_palette = displayio.Palette(1)

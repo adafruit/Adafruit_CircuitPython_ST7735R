@@ -7,6 +7,7 @@ This example will test out the display on the 1.8" TFT Shield
 import time
 import board
 import displayio
+import fourwire
 from adafruit_seesaw.tftshield18 import TFTShield18
 from adafruit_st7735r import ST7735R
 
@@ -19,7 +20,7 @@ spi = board.SPI()
 tft_cs = board.D10
 tft_dc = board.D8
 
-display_bus = displayio.FourWire(spi, command=tft_dc, chip_select=tft_cs)
+display_bus = fourwire.FourWire(spi, command=tft_dc, chip_select=tft_cs)
 
 ss.tft_reset()
 display = ST7735R(display_bus, width=160, height=128, rotation=90, bgr=True)
