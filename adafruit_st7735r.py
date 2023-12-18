@@ -39,7 +39,13 @@ try:
 except ImportError:
     pass
 
-import displayio
+# Support both 8.x.x and 9.x.x. Change when 8.x.x is discontinued as a stable release.
+try:
+    from fourwire import FourWire
+    from busdisplay import BusDisplay
+except ImportError:
+    from displayio import FourWire
+    from displayio import Display as BusDisplay
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_ST7735R.git"
@@ -70,22 +76,17 @@ _INIT_SEQUENCE = bytearray(
 
 
 # pylint: disable=too-few-public-methods
-class ST7735R(displayio.Display):
+class ST7735R(BusDisplay):
     """
     ST7735R display driver
 
-    :param displayio.FourWire bus: bus that the display is connected to
+    :param FourWire bus: bus that the display is connected to
     :param bool bgr: (Optional) An extra init sequence to append (default=False)
     :param bool invert: (Optional) Invert the colors (default=False)
     """
 
     def __init__(
-        self,
-        bus: displayio.FourWire,
-        *,
-        bgr: bool = False,
-        invert: bool = False,
-        **kwargs: Any
+        self, bus: FourWire, *, bgr: bool = False, invert: bool = False, **kwargs: Any
     ):
         init_sequence = _INIT_SEQUENCE
         if bgr:
