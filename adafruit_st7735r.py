@@ -33,19 +33,17 @@ Implementation Notes
   https://circuitpython.org/downloads
 
 """
+
+from busdisplay import BusDisplay
+
 try:
     # used for typing only
     from typing import Any
+
+    from fourwire import FourWire
 except ImportError:
     pass
 
-# Support both 8.x.x and 9.x.x. Change when 8.x.x is discontinued as a stable release.
-try:
-    from fourwire import FourWire
-    from busdisplay import BusDisplay
-except ImportError:
-    from displayio import FourWire
-    from displayio import Display as BusDisplay
 
 __version__ = "0.0.0+auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_ST7735R.git"
@@ -53,9 +51,9 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_ST7735R.git"
 _INIT_SEQUENCE = bytearray(
     b"\x01\x80\x96"  # SWRESET and Delay 150ms
     b"\x11\x80\xff"  # SLPOUT and Delay
-    b"\xb1\x03\x01\x2C\x2D"  # _FRMCTR1
-    b"\xb2\x03\x01\x2C\x2D"  # _FRMCTR2
-    b"\xb3\x06\x01\x2C\x2D\x01\x2C\x2D"  # _FRMCTR3
+    b"\xb1\x03\x01\x2c\x2d"  # _FRMCTR1
+    b"\xb2\x03\x01\x2c\x2d"  # _FRMCTR2
+    b"\xb3\x06\x01\x2c\x2d\x01\x2c\x2d"  # _FRMCTR3
     b"\xb4\x01\x07"  # _INVCTR line inversion
     b"\xc0\x03\xa2\x02\x84"  # _PWCTR1 GVDD = 4.7V, 1.0uA
     b"\xc1\x01\xc5"  # _PWCTR2 VGH=14.7V, VGL=-7.35V
@@ -68,8 +66,8 @@ _INIT_SEQUENCE = bytearray(
     # 1 clk cycle nonoverlap, 2 cycle gate rise, 3 sycle osc equalie,
     # fix on VTL
     b"\x3a\x01\x05"  # COLMOD - 16bit color
-    b"\xe0\x10\x02\x1c\x07\x12\x37\x32\x29\x2d\x29\x25\x2B\x39\x00\x01\x03\x10"  # _GMCTRP1 Gamma
-    b"\xe1\x10\x03\x1d\x07\x06\x2E\x2C\x29\x2D\x2E\x2E\x37\x3F\x00\x00\x02\x10"  # _GMCTRN1
+    b"\xe0\x10\x02\x1c\x07\x12\x37\x32\x29\x2d\x29\x25\x2b\x39\x00\x01\x03\x10"  # _GMCTRP1 Gamma
+    b"\xe1\x10\x03\x1d\x07\x06\x2e\x2c\x29\x2d\x2e\x2e\x37\x3f\x00\x00\x02\x10"  # _GMCTRN1
     b"\x13\x80\x0a"  # _NORON
     b"\x29\x80\x64"  # _DISPON
 )
@@ -85,18 +83,12 @@ class ST7735R(BusDisplay):
     :param bool invert: (Optional) Invert the colors (default=False)
     """
 
-    def __init__(
-        self, bus: FourWire, *, bgr: bool = False, invert: bool = False, **kwargs: Any
-    ):
+    def __init__(self, bus: FourWire, *, bgr: bool = False, invert: bool = False, **kwargs: Any):
         init_sequence = _INIT_SEQUENCE
         if bgr:
-            init_sequence += (
-                b"\x36\x01\xC0"  # _MADCTL Default rotation plus BGR encoding
-            )
+            init_sequence += b"\x36\x01\xc0"  # _MADCTL Default rotation plus BGR encoding
         else:
-            init_sequence += (
-                b"\x36\x01\xC8"  # _MADCTL Default rotation plus RGB encoding
-            )
+            init_sequence += b"\x36\x01\xc8"  # _MADCTL Default rotation plus RGB encoding
         if invert:
             init_sequence += b"\x21\x00"  # _INVON
         super().__init__(bus, init_sequence, **kwargs)

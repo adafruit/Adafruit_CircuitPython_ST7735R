@@ -7,15 +7,12 @@ labels. Useful for testing the color settings on an unknown display.
 """
 
 import board
-import terminalio
 import displayio
+import terminalio
 from adafruit_display_text import label
-from adafruit_st7735r import ST7735R
+from fourwire import FourWire
 
-try:
-    from fourwire import FourWire
-except ImportError:
-    from displayio import FourWire
+from adafruit_st7735r import ST7735R
 
 # Release any resources currently in use for the displays
 displayio.release_displays()
@@ -26,9 +23,7 @@ tft_dc = board.D6
 
 display_bus = FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=board.D9)
 
-display = ST7735R(
-    display_bus, width=160, height=80, colstart=24, rotation=270, bgr=False
-)
+display = ST7735R(display_bus, width=160, height=80, colstart=24, rotation=270, bgr=False)
 
 # Make the display context
 splash = displayio.Group()

@@ -7,16 +7,12 @@ background, a smaller purple rectangle, and some yellow text.
 """
 
 import board
-import terminalio
 import displayio
+import terminalio
 from adafruit_display_text import label
-from adafruit_st7735r import ST7735R
+from fourwire import FourWire
 
-# Support both 8.x.x and 9.x.x. Change when 8.x.x is discontinued as a stable release.
-try:
-    from fourwire import FourWire
-except ImportError:
-    from displayio import FourWire
+from adafruit_st7735r import ST7735R
 
 # Release any resources currently in use for the displays
 displayio.release_displays()
