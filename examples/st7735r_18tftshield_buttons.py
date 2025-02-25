@@ -4,17 +4,15 @@
 """
 This example will test out the display on the 1.8" TFT Shield
 """
+
 import time
+
 import board
 import displayio
 from adafruit_seesaw.tftshield18 import TFTShield18
-from adafruit_st7735r import ST7735R
+from fourwire import FourWire
 
-# Support both 8.x.x and 9.x.x. Change when 8.x.x is discontinued as a stable release.
-try:
-    from fourwire import FourWire
-except ImportError:
-    from displayio import FourWire
+from adafruit_st7735r import ST7735R
 
 # Release any resources currently in use for the displays
 displayio.release_displays()
